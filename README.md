@@ -66,7 +66,8 @@ app.listen(port, () => {
 - FLag : ```HCMUS-CTF{browser_scheme_is_interesting}```
 ### Python Pickle
 Server.py:
-```import pandas as pd
+```py
+import pandas as pd
 import io
 import time
 import threading
