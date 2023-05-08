@@ -64,7 +64,7 @@ app.listen(port, () => {
   ![image](https://user-images.githubusercontent.com/89735990/236757691-f10082a4-21fe-4a2a-884d-a06f3396d223.png)
 
 - FLag : ```HCMUS-CTF{browser_scheme_is_interesting}```
-### Python Pickle
+### Pickle Trouble
 Server.py:
 ```py
 import pandas as pd
