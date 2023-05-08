@@ -32,7 +32,8 @@ app.get('/api/private/flag', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
-}```
+}
+```
 
 - Nhìn sơ qua source code thì đây là một chall viết bằng Express của NodeJS và server được chạy bằng Nginx.\
 - 
