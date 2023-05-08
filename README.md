@@ -187,6 +187,7 @@ if __name__ == '__main__':
     r.recvuntil(b'(raw bytes)\n')
     r.sendline(pickled)
     r.interactive()
-    ```
-  Flag : ```HCMUS-CTF{S||\/|pL3_p1cKlE_ExpL01t-Huh}```
+    
+  ```
+ Flag : ```HCMUS-CTF{S||\/|pL3_p1cKlE_ExpL01t-Huh}```
 
