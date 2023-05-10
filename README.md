@@ -38,7 +38,7 @@ app.listen(port, () => {
 - Nhìn sơ qua source code thì đây là một chall viết bằng Express của NodeJS và server được chạy bằng Nginx.
 - Có 3 đường dẫn ta cần quan tâm tới là ```/api/public/fake``` dẫn đến fake flag, ```/api/public/quote``` dẫn đến các câu quote được lưu sẵn và cuối cùng là ```/api/private/flag``` dẫn đến flag.
 - Tuy nhiên chúng ta không thể truy cập để ```/api/private/flag``` qua cách thông thường.
-- Để có thể truy cập, ta sẽ lợi dụng việc sử lý URL của Nginx và Express để có thể đọc flag.
+- Để có thể truy cập, ta sẽ lợi dụng việc xử lý URL của Nginx và Express để có thể đọc flag.
 - Đây là URL của mình: ```urlchall/Api/private/flag```
 - Flag ```HCMUS-CTF{where_nginx_meet_express!}```
 ### Safe Proxy
